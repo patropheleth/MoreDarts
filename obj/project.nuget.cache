@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zfa6OHdfth0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\patme\\OneDrive\\Документы\\My Games\\Terraria\\tModLoader\\ModSources\\MoreDarts\\MoreDarts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\patme\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512",
+    "C:\\Users\\patme\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.11\\microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\patme\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.11\\microsoft.windowsdesktop.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\patme\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.11\\microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

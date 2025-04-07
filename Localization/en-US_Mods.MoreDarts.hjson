@@ -1,0 +1,35 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	lol: {
+		DisplayName: lol
+		Tooltip:
+			'''
+			Template of an item
+			Replacing this tooltip is duty 
+			It's snowing on Mt.Fuji
+			'''
+	}
+
+	PoisonDart: {
+		DisplayName: Poison Dart
+		Tooltip: ""
+	}
+
+	SandDart: {
+		DisplayName: Sand Dart
+		Tooltip: ""
+	}
+
+	BoboGrenade: {
+		DisplayName: Bobo Grenade
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	PoisonDartProjectile.DisplayName: Poison Dart Projectile
+	SandDartProjectile.DisplayName: Sand Dart Projectile
+	HellDartProjectile.DisplayName: Hell Dart Projectile
+	BoboGrenadeProjectile.DisplayName: Bobo Grenade Projectile
+}
