@@ -35,6 +35,21 @@ Items: {
 		DisplayName: Venom Dart
 		Tooltip: ""
 	}
+
+	SnowDart: {
+		DisplayName: Snow Dart
+		Tooltip: ""
+	}
+
+	NanoDart: {
+		DisplayName: Nano Dart
+		Tooltip: ""
+	}
+
+	EctoDart: {
+		DisplayName: Ecto Dart
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -44,4 +59,7 @@ Projectiles: {
 	BoboGrenadeProjectile.DisplayName: Bobo Grenade Projectile
 	HellDartExplosionProjectile.DisplayName: Hell Dart Explosion Projectile
 	VenomDartProjectile.DisplayName: Venom Dart Projectile
+	SnowDartProjectile.DisplayName: Snow Dart Projectile
+	NanoDartProjectile.DisplayName: Nano Dart Projectile
+	EctoDartProjectile.DisplayName: Ecto Dart Projectile
 }

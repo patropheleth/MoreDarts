@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MoreDarts.Content.Projectiles {
-	public class VenomDartProjectile : ModProjectile {
+	public class PoisonDartProjectile : ModProjectile {
 		private NPC HomingTarget {
 			get => Projectile.ai[2] == 0 ? null : Main.npc[(int)Projectile.ai[2] - 1];
 			set {
@@ -39,23 +39,13 @@ namespace MoreDarts.Content.Projectiles {
 				Projectile.ai[0] = 15f;
 				Projectile.velocity.Y += 0.1f;
 			}
-			if (Main.myPlayer == Projectile.owner) {
-				if (Projectile.ai[1] == 0.0f) {
-
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, 2*Projectile.velocity.RotatedBy(MathF.Tau/120), 
-						Projectile.type, Projectile.damage/2, Projectile.knockBack, Main.myPlayer, 1f, 10f, 1f);
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, 2*Projectile.velocity.RotatedBy(-MathF.Tau/120), 
-						Projectile.type, Projectile.damage/2, Projectile.knockBack, Main.myPlayer, 1f, 10f, 1f);
-					Projectile.velocity *= 2;
-					Projectile.ai[1] = 1.0f;
-				}
-			}
+			// The projectile is rotated to face the direction of travel
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
 			// Cap downward velocity
 			if (Projectile.velocity.Y > 16f) {
 				Projectile.velocity.Y = 16f;
 			}
-			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 			// First, we find a homing target if we don't have one
 			if (HomingTarget == null) {
 				HomingTarget = FindClosestNPC(maxDetectRadius);
@@ -74,7 +64,7 @@ namespace MoreDarts.Content.Projectiles {
 			// We only rotate by 3 degrees an update to give it a smooth trajectory. Increase the rotation speed here to make tighter turns
 			float length = Projectile.velocity.Length();
 			float targetAngle = Projectile.AngleTo(HomingTarget.Center);
-			Projectile.velocity = Projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(1)).ToRotationVector2() * length;
+			Projectile.velocity = Projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(0.25f)).ToRotationVector2() * length;
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 		}
 		public NPC FindClosestNPC(float maxDetectDistance) {
@@ -88,7 +78,7 @@ namespace MoreDarts.Content.Projectiles {
 				// Check if NPC able to be targeted. 
 				if (IsValidTarget(target)) {
 					// The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
-					float sqrDistanceToTarget = Microsoft.Xna.Framework.Vector2.DistanceSquared(target.Center, Projectile.Center);
+					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
 
 					// Check if it is within the radius
 					if (sqrDistanceToTarget < sqrMaxDetectDistance) {
@@ -114,7 +104,7 @@ namespace MoreDarts.Content.Projectiles {
 		}
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.AddBuff(BuffID.Venom, 240);
+			target.AddBuff(BuffID.Poisoned, 240);
         }
 		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.
