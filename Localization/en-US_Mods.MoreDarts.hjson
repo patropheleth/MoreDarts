@@ -25,6 +25,16 @@ Items: {
 		DisplayName: Bobo Grenade
 		Tooltip: ""
 	}
+
+	HellDart: {
+		DisplayName: Hell Dart
+		Tooltip: ""
+	}
+
+	VenomDart: {
+		DisplayName: Venom Dart
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -32,4 +42,6 @@ Projectiles: {
 	SandDartProjectile.DisplayName: Sand Dart Projectile
 	HellDartProjectile.DisplayName: Hell Dart Projectile
 	BoboGrenadeProjectile.DisplayName: Bobo Grenade Projectile
+	HellDartExplosionProjectile.DisplayName: Hell Dart Explosion Projectile
+	VenomDartProjectile.DisplayName: Venom Dart Projectile
 }
