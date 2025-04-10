@@ -11,7 +11,7 @@ namespace MoreDarts.Content.Projectiles {
 		public override void SetStaticDefaults() {
 			// If this arrow would have strong effects (like Holy Arrow pierce), we can make it fire fewer projectiles from Daedalus Stormbow for game balance considerations like this:
 			//ProjectileID.Sets.FiresFewerFromDaedalusStormbow[Type] = true;			
-			ProjectileID.Sets.Explosive[Type] = true;
+			//ProjectileID.Sets.Explosive[Type] = true;
 		}
 
 		public override void SetDefaults() {
@@ -19,6 +19,7 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.height = 10; // The height of projectile hitbox
 
 			Projectile.friendly = true;
+			Projectile.hostile = false;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 120;
 			Projectile.penetrate = -1;
@@ -54,6 +55,9 @@ namespace MoreDarts.Content.Projectiles {
 		public override bool OnTileCollide(Microsoft.Xna.Framework.Vector2 oldVelocity) {
 			Projectile.timeLeft = 3;
 			return false;
+		}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			Projectile.timeLeft = 3;
 		}
 
 		public override void PrepareBombToBlow() {

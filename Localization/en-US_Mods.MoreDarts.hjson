@@ -50,6 +50,11 @@ Items: {
 		DisplayName: Ecto Dart
 		Tooltip: ""
 	}
+
+	RainbowDartGun: {
+		DisplayName: Rainbow Dart Gun
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
