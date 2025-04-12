@@ -55,6 +55,11 @@ Items: {
 		DisplayName: Rainbow Dart Gun
 		Tooltip: ""
 	}
+
+	SteelDart: {
+		DisplayName: Steel Dart
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

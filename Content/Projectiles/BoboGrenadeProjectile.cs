@@ -27,11 +27,6 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.localNPCHitCooldown = -1;
 
 			Projectile.timeLeft = 180;
-
-			// Grenades use explosive AI, ProjAIStyleID.Explosive (16). You could use that instead here with the correct AIType.
-			// But, using our own AI allows us to customize things like the dusts that the grenade creates.
-			// Projectile.aiStyle = ProjAIStyleID.Explosive;
-			// AIType = ProjectileID.GrenadeI;
 		}
 		public override void AI() {
 			// If timeLeft is <= 3, then explode the grenade.
@@ -71,7 +66,6 @@ namespace MoreDarts.Content.Projectiles {
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
-			// Bounce off of tiles.
 			if (Projectile.velocity.X != oldVelocity.X) {
 				Projectile.velocity.X = oldVelocity.X * -0.4f;
 			}
@@ -79,10 +73,6 @@ namespace MoreDarts.Content.Projectiles {
 			if (Projectile.velocity.Y != oldVelocity.Y && oldVelocity.Y > 0.7f) {
 				Projectile.velocity.Y = oldVelocity.Y * -0.4f;
 			}
-
-			// Return false so the projectile doesn't get killed. If you do want your projectile to explode on contact with tiles, do not return true here.
-			// If you return true, the projectile will die without being resized (no blast radius).
-			// Instead, set `Projectile.timeLeft = 3;` like the Example Rocket Projectile.
 			return false;
 		}
 
@@ -90,25 +80,14 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.tileCollide = false; // This is important or the explosion will be in the wrong place if the grenade explodes on slopes.
 			Projectile.alpha = 255; // Make the grenade invisible.
 
-			Projectile.hostile = true;
-			// Resize the hitbox of the projectile for the blast "radius".
-			// Rocket I: 128, Rocket III: 200, Mini Nuke Rocket: 250
-			// Measurements are in pixels, so 128 / 16 = 8 tiles.
 			Projectile.Resize(128, 128);
-			// Set the knockback of the blast.
-			// Rocket I: 8f, Rocket III: 10f, Mini Nuke Rocket: 12f
 			Projectile.knockBack = 8f;
 		}
 
 		public override void OnKill(int timeLeft) {
-			// Play an exploding sound.
 			SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
-
-			// Resize the projectile again so the explosion dust and gore spawn from the middle.
-			// Rocket I: 22, Rocket III: 80, Mini Nuke Rocket: 50
 			Projectile.Resize(22, 22);
 
-			// Spawn a bunch of smoke dusts.
 			for (int i = 0; i < 30; i++) {
 				var smoke = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
 				smoke.velocity *= 1.4f;
@@ -145,8 +124,6 @@ namespace MoreDarts.Content.Projectiles {
 				smokeGore.velocity *= speedMulti;
 				smokeGore.velocity -= Vector2.One;
 			}
-
-			// To make the explosion destroy tiles, take a look at the commented out code in Example Rocket Projectile.
 		}
 	}
 }

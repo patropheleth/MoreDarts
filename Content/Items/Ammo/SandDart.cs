@@ -24,10 +24,9 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.ammo = AmmoID.Dart; // The ammo class this ammo belongs to.
 		}
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe(100);
+			recipe.AddIngredient(ItemID.AntlionMandible, 1);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}

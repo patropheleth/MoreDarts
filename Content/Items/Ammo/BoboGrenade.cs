@@ -23,7 +23,7 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.useAnimation = 40;
 			Item.value = Item.sellPrice(copper: 16);
 			Item.shoot = ModContent.ProjectileType<Projectiles.BoboGrenadeProjectile>(); // The projectile that weapons fire when using this item as ammunition.
-			Item.shootSpeed = 3f; // The speed of the projectile.
+			Item.shootSpeed = 3.5f; // The speed of the projectile.
 		}
 
 		public override void AddRecipes()
