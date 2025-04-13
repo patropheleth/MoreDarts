@@ -5,6 +5,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
 
 namespace MoreDarts.Content.Items.Weapons {
 	public class RainbowDartGun : ModItem {
@@ -18,21 +19,21 @@ namespace MoreDarts.Content.Items.Weapons {
 			Item.rare = ItemRarityID.Green; // The color that the item's name will be in-game.
 
 			// Use Properties
-			Item.useTime = 8; // The item's use time in ticks (60 ticks == 1 second.)
-			Item.useAnimation = 8; // The length of the item's use animation in ticks (60 ticks == 1 second.)
+			Item.useTime = 16; // The item's use time in ticks (60 ticks == 1 second.)
+			Item.useAnimation = 16; // The length of the item's use animation in ticks (60 ticks == 1 second.)
 			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
 			Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
 
 			Item.UseSound = SoundID.Shatter;
 			// Weapon Properties
 			Item.DamageType = DamageClass.Ranged; // Sets the damage type to ranged.
-			Item.damage = 30; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+			Item.damage = 50; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
 			Item.knockBack = 5f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
 			Item.noMelee = true; // So the item's animation doesn't do damage.
 
 			// Gun Properties
 			Item.shoot = ProjectileID.PurificationPowder; // For some reason, all the guns in the vanilla source have this.
-			Item.shootSpeed = 5f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
+			Item.shootSpeed = 10f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
 			Item.useAmmo = AmmoID.Dart; // The "ammo Id" of the ammo item that this weapon uses. Ammo IDs are magic numbers that usually correspond to the item id of one item that most commonly represent the ammo type.
 		}
 
@@ -49,13 +50,28 @@ namespace MoreDarts.Content.Items.Weapons {
 			return new Vector2(2f, -2f);
 		}
 
-		//TODO: Move this to a more specifically named example. Say, a paint gun?
 		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 
-            if (type == ModContent.ProjectileType<SandDartProjectile>()){
-                type = ModContent.ProjectileType<EctoDartProjectile>();
+            if (type == ModContent.ProjectileType<SteelDartProjectile>()){
+				int[] darts = [
+					ModContent.ProjectileType<SteelDartProjectile>(),
+					ModContent.ProjectileType<EctoDartProjectile>(),
+					ModContent.ProjectileType<SandDartProjectile>(),
+					ModContent.ProjectileType<VenomDartProjectile>(),
+					ModContent.ProjectileType<SnowDartProjectile>(),
+					ModContent.ProjectileType<HellDartProjectile>(),
+					ModContent.ProjectileType<NanoDartProjectile>(),
+					ModContent.ProjectileType<PoisonDartProjectile>(),
+					ItemID.IchorDart,
+					ItemID.CursedDart,
+					ItemID.CrystalDart,
+				];
+				Random random = new();
+				int r = random.Next(0, darts.Length);
+                type = darts[r];
             }
 		}
+
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, position, velocity.RotatedBy(System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
             Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/360), type, damage, knockback, player.whoAmI);

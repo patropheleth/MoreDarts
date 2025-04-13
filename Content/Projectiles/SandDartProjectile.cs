@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Numerics;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -68,20 +68,22 @@ namespace MoreDarts.Content.Projectiles {
 		} 
 		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.
-			
-			Projectile.Resize(256, 256);
 			for (int i = 0; i < 5; i++) // Creates a splash of dust around the position the projectile dies.
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Silver);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Copper);
 				dust.noGravity = true;
 				dust.velocity *= 1.5f;
 				dust.scale *= 0.9f;
 			} 
-			for (int j = 0; j < 20; j++) {
-				var fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
+			float x = Projectile.Center.X;
+
+			float y = Projectile.Center.Y;
+			for (int j = 0; j < 40; j++) {
+				Vector2 pos = new Vector2(x + 60*MathF.Cos(MathF.Tau*j/40), y + 60*MathF.Sin(MathF.Tau*j/40));
+				Vector2 vel = new Vector2(10*MathF.Cos(MathF.Tau*j/40), 10*MathF.Sin(MathF.Tau*j/40));
+				var fireDust = Dust.NewDustPerfect(pos, DustID.Torch, vel, 25, Color.NavajoWhite, 1.2f);
 				fireDust.noGravity = true;
-				fireDust.velocity *= 7f;
-				fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.5f);
+				fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.0f);
 				fireDust.velocity *= 3f;
 			}
 		}

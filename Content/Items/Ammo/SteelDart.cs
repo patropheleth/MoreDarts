@@ -12,7 +12,7 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.width = 14;
 			Item.height = 36;
 
-			Item.damage = 6; 
+			Item.damage = 12; 
 			Item.DamageType = DamageClass.Ranged;
 
 			Item.maxStack = Item.CommonMaxStack;

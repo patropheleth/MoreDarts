@@ -1,75 +1,66 @@
 # This file will automatically update with entries for new content after a build and reload.
 
 Items: {
-	lol: {
-		DisplayName: lol
-		Tooltip:
-			'''
-			Template of an item
-			Replacing this tooltip is duty 
-			It's snowing on Mt.Fuji
-			'''
-	}
-
 	PoisonDart: {
 		DisplayName: Poison Dart
-		Tooltip: ""
+		Tooltip: Slightly homes in and poisons enemies
 	}
 
 	SandDart: {
 		DisplayName: Sand Dart
-		Tooltip: ""
+		Tooltip: Does a huge yet weak explosion
 	}
 
 	BoboGrenade: {
 		DisplayName: Bobo Grenade
-		Tooltip: ""
+		Tooltip: A small explosion that will not destroy you
 	}
 
 	HellDart: {
 		DisplayName: Hell Dart
-		Tooltip: ""
+		Tooltip: Pierces enemies, exploding them
 	}
 
 	VenomDart: {
 		DisplayName: Venom Dart
-		Tooltip: ""
+		Tooltip: Triple homing shot that poisons enemies
 	}
 
 	SnowDart: {
 		DisplayName: Snow Dart
-		Tooltip: ""
+		Tooltip: Leaves a trail of snowflakes
 	}
 
 	NanoDart: {
 		DisplayName: Nano Dart
-		Tooltip: ""
+		Tooltip: Explodes into bullets
 	}
 
 	EctoDart: {
 		DisplayName: Ecto Dart
-		Tooltip: ""
+		Tooltip: Slow, piercing projectile that turns lifeforce into deathforce
 	}
 
 	RainbowDartGun: {
 		DisplayName: Rainbow Dart Gun
-		Tooltip: ""
+		Tooltip: Converts steel darts into random darts
 	}
 
 	SteelDart: {
 		DisplayName: Steel Dart
-		Tooltip: ""
+		Tooltip: I guess it deals slightly higher damage?
 	}
 }
 
 Projectiles: {
-	PoisonDartProjectile.DisplayName: Poison Dart Projectile
-	SandDartProjectile.DisplayName: Sand Dart Projectile
-	HellDartProjectile.DisplayName: Hell Dart Projectile
-	BoboGrenadeProjectile.DisplayName: Bobo Grenade Projectile
-	HellDartExplosionProjectile.DisplayName: Hell Dart Explosion Projectile
-	VenomDartProjectile.DisplayName: Venom Dart Projectile
-	SnowDartProjectile.DisplayName: Snow Dart Projectile
-	NanoDartProjectile.DisplayName: Nano Dart Projectile
-	EctoDartProjectile.DisplayName: Ecto Dart Projectile
+	PoisonDartProjectile.DisplayName: Poison Dart
+	SandDartProjectile.DisplayName: Sand Dart
+	HellDartProjectile.DisplayName: Hell Dart
+	BoboGrenadeProjectile.DisplayName: Bobo Grenade
+	HellDartExplosionProjectile.DisplayName: Hell Dart Explosion
+	VenomDartProjectile.DisplayName: Venom Dart
+	SnowDartProjectile.DisplayName: Snow Dart
+	NanoDartProjectile.DisplayName: Nano Dart
+	EctoDartProjectile.DisplayName: Ecto Dart
+	SteelDartProjectile.DisplayName: Steel Dart Projectile
 }
