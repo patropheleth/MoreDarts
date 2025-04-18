@@ -1,1 +1,14 @@
-This description will show up on the steam page, check out https://steamcommunity.com/comment/Guide/formattinghelp.
+Ever wanted more quirky darts? Here's something then. 
+Simple mod, adding 7 new dart types, "modifying" an old one, and additionally adding a new dart gun and a secret grenade, obtainable by self-harming [spoiler](dying from your own grenade)[/spoiler]! Joyful. 
+[list]
+    [*]Steel dart: doesn't do anything in particular, but has high-ish damage and can be crafted into other ammo; sold by Witch Doctor.
+    [*]Poison dart: now slightly homes onto enemies.
+    [*]Sand dart: upon hitting anything explodes in a wide area, dealing weak damage.
+    [*]Snow dart: leaves up to 3 falling snowflakes in its trail.
+    [*]Hell dart: pierces enemies, exploding on every hit.
+    [*]Nano dart: explodes into 4 nano bullets.
+    [*]Venom dart: Fast triple piercing shot.
+    [*]Ecto dart: pierces enemies, releasing homing wisps.
+    [*]Rainbow dart gun: converts all steel darts into random ones.
+    [*][spoiler]Bobo grenade: slightly homes onto you, but deals extra damage![/spoiler]
+[/list]

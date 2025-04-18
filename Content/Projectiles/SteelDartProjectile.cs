@@ -33,10 +33,6 @@ namespace MoreDarts.Content.Projectiles {
 		}
 		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.
-			if (Main.myPlayer == Projectile.owner) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Microsoft.Xna.Framework.Vector2.Zero, 
-					ModContent.ProjectileType<Projectiles.HellDartExplosionProjectile>(), Projectile.damage/4, Projectile.knockBack, Main.myPlayer, 1f, 10f, 1f);
-			}
 		}
 	}
 }

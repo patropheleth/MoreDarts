@@ -14,9 +14,9 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 1200;
-			Projectile.penetrate = -1;
+			Projectile.penetrate = 20;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 1;
+			Projectile.localNPCHitCooldown = 5;
 		}
 
 		public override void AI() {

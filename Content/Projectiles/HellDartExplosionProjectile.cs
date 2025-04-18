@@ -79,13 +79,13 @@ namespace MoreDarts.Content.Projectiles {
 			// Rocket I: 22, Rocket III: 80, Mini Nuke Rocket: 50
 
 			// Spawn a bunch of smoke dusts.
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < 5; i++) {
 				var smoke = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
 				smoke.velocity *= 1.4f;
 			}
 
 			// Spawn a bunch of fire dusts.
-			for (int j = 0; j < 20; j++) {
+			for (int j = 0; j < 10; j++) {
 				var fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
 				fireDust.noGravity = true;
 				fireDust.velocity *= 7f;

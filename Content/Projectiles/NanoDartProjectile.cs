@@ -40,7 +40,7 @@ namespace MoreDarts.Content.Projectiles {
 				dust.scale *= 0.9f;
 			} 
 			if (Main.myPlayer == Projectile.owner) {
-				for (int i = 0; i < 10; i++){
+				for (int i = 0; i < 4; i++){
 					Vector2 test = Vector2.One.RotatedByRandom(MathF.Tau);
 					float ang = MathF.Atan(test.X/test.Y);
 					test.Normalize();

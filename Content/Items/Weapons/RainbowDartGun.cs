@@ -24,16 +24,16 @@ namespace MoreDarts.Content.Items.Weapons {
 			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
 			Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
 
-			Item.UseSound = SoundID.Shatter;
+			Item.UseSound = SoundID.Item99;
 			// Weapon Properties
 			Item.DamageType = DamageClass.Ranged; // Sets the damage type to ranged.
-			Item.damage = 48; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+			Item.damage = 56; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
 			Item.knockBack = 5f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
 			Item.noMelee = true; // So the item's animation doesn't do damage.
 
 			// Gun Properties
 			Item.shoot = ProjectileID.PurificationPowder; // For some reason, all the guns in the vanilla source have this.
-			Item.shootSpeed = 10f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
+			Item.shootSpeed = 15f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
 			Item.useAmmo = AmmoID.Dart; // The "ammo Id" of the ammo item that this weapon uses. Ammo IDs are magic numbers that usually correspond to the item id of one item that most commonly represent the ammo type.
 		}
 
@@ -63,19 +63,19 @@ namespace MoreDarts.Content.Items.Weapons {
 					ModContent.ProjectileType<HellDartProjectile>(),
 					ModContent.ProjectileType<NanoDartProjectile>(),
 					ModContent.ProjectileType<PoisonDartProjectile>(),
-					ItemID.IchorDart,
-					ItemID.CursedDart,
-					ItemID.CrystalDart,
+					ProjectileID.IchorDart,
+					ProjectileID.CursedDart,
+					ProjectileID.CrystalDart,
 				];
 				Random random = new();
-				int r = random.Next(0, darts.Length);
+				int r = random.Next(0, darts.Length-1);
                 type = darts[r];
             }
 		}
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            Projectile.NewProjectile(source, position, velocity.RotatedBy(System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
-            Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
+            //Projectile.NewProjectile(source, position, velocity.RotatedBy(System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
+        	//Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
 
             return true;
         }

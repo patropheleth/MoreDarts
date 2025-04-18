@@ -29,10 +29,11 @@ namespace MoreDarts.Content.Projectiles {
 				Projectile.velocity.Y += 0.2f;
 			}
 			if (Main.myPlayer == Projectile.owner) {
-				if (Projectile.ai[1] >= 60.0f) {
+				if (Projectile.ai[1] >= 18.0f && Projectile.ai[2] < 3.0f) {
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, 
 						ProjectileID.NorthPoleSnowflake, Projectile.damage/2, Projectile.knockBack, Main.myPlayer);
 					Projectile.ai[1] = 0.0f;
+					Projectile.ai[2]++;
 				}
 			}
 			// The projectile is rotated to face the direction of travel

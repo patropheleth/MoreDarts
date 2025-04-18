@@ -13,7 +13,7 @@ Items: {
 
 	BoboGrenade: {
 		DisplayName: Bobo Grenade
-		Tooltip: A small explosion that will not destroy you
+		Tooltip: A small explosion that surely will not destroy you
 	}
 
 	HellDart: {
@@ -62,5 +62,5 @@ Projectiles: {
 	SnowDartProjectile.DisplayName: Snow Dart
 	NanoDartProjectile.DisplayName: Nano Dart
 	EctoDartProjectile.DisplayName: Ecto Dart
-	SteelDartProjectile.DisplayName: Steel Dart Projectile
+	SteelDartProjectile.DisplayName: Steel Dart
 }

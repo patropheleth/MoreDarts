@@ -62,9 +62,10 @@ namespace MoreDarts.Content.Projectiles {
 
 		public override void PrepareBombToBlow() {
 			Projectile.tileCollide = false; // This is important or the explosion will be in the wrong place if the grenade explodes on slopes.
+			Projectile.velocity = Vector2.Zero;
 			Projectile.alpha = 255;
 			Projectile.Resize(256, 256);
-			Projectile.damage /= 5;
+			Projectile.damage /= 2;
 		} 
 		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.

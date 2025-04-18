@@ -1,1 +1,2 @@
-Modify this file with a description of your mod.
+This mod adds 7.5 new darts, a new dart gun, and a secret item!
+5 new dart types are locked behind the Witch Doctor, the new gun is post-Plantera, the secret item... you can get almost as soon as you start, maybe?
