@@ -25,13 +25,5 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.shoot = ModContent.ProjectileType<Projectiles.BoboGrenadeProjectile>(); // The projectile that weapons fire when using this item as ammunition.
 			Item.shootSpeed = 3.5f; // The speed of the projectile.
 		}
-
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.Register();
-		}
 	}
 }

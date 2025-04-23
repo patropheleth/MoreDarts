@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using System;
 
 namespace MoreDarts.Content.Items.Weapons {
-	public class RainbowDartGun : ModItem {
+	public class Blowspine : ModItem {
 		public override void SetDefaults() {
 			// Modders can use Item.DefaultToRangedWeapon to quickly set many common properties, such as: useTime, useAnimation, useStyle, autoReuse, DamageType, shoot, shootSpeed, useAmmo, and noMelee. These are all shown individually here for teaching purposes.
 
@@ -19,15 +19,15 @@ namespace MoreDarts.Content.Items.Weapons {
 			Item.rare = ItemRarityID.Yellow; // The color that the item's name will be in-game.
 
 			// Use Properties
-			Item.useTime = 22; // The item's use time in ticks (60 ticks == 1 second.)
-			Item.useAnimation = 22; // The length of the item's use animation in ticks (60 ticks == 1 second.)
+			Item.useTime = 30; // The item's use time in ticks (60 ticks == 1 second.)
+			Item.useAnimation = 30; // The length of the item's use animation in ticks (60 ticks == 1 second.)
 			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
 			Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
 
 			Item.UseSound = SoundID.Item99;
 			// Weapon Properties
 			Item.DamageType = DamageClass.Ranged; // Sets the damage type to ranged.
-			Item.damage = 56; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+			Item.damage = 24; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
 			Item.knockBack = 5f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
 			Item.noMelee = true; // So the item's animation doesn't do damage.
 
@@ -40,10 +40,15 @@ namespace MoreDarts.Content.Items.Weapons {
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.RainbowBrick, 20);
-			recipe.AddIngredient(ItemID.SpectreBar, 10);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ItemID.Bone, 40);
+			recipe.AddIngredient(ItemID.Leather, 1);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
+			Recipe recipe2 = CreateRecipe();
+			recipe2.AddIngredient(ItemID.Bone, 40);
+			recipe2.AddIngredient(ItemID.Vertebrae, 5);
+			recipe2.AddTile(TileID.WorkBenches);
+			recipe2.Register();
 		}
 
 		// This method lets you adjust position of the gun in the player's hands. Play with these values until it looks good with your graphics.
@@ -54,28 +59,13 @@ namespace MoreDarts.Content.Items.Weapons {
 		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 
             if (type == ModContent.ProjectileType<SteelDartProjectile>()){
-				int[] darts = [
-					ModContent.ProjectileType<SteelDartProjectile>(),
-					ModContent.ProjectileType<EctoDartProjectile>(),
-					ModContent.ProjectileType<SandDartProjectile>(),
-					ModContent.ProjectileType<VenomDartProjectile>(),
-					ModContent.ProjectileType<SnowDartProjectile>(),
-					ModContent.ProjectileType<HellDartProjectile>(),
-					ModContent.ProjectileType<NanoDartProjectile>(),
-					ModContent.ProjectileType<PoisonDartProjectile>(),
-					ProjectileID.IchorDart,
-					ProjectileID.CursedDart,
-					ProjectileID.CrystalDart,
-				];
-				Random random = new();
-				int r = random.Next(0, darts.Length-1);
-                type = darts[r];
+                //type = darts[r];
             }
 		}
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            //Projectile.NewProjectile(source, position, velocity.RotatedBy(System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
-        	//Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/360), type, damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity.RotatedBy( System.MathF.Tau/120)*0.8f, ProjectileID.Bone, damage/2, knockback, player.whoAmI);
+        	Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/120)*0.8f, ProjectileID.Bone, damage/2, knockback, player.whoAmI);
 
             return true;
         }

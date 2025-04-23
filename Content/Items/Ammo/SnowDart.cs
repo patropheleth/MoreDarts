@@ -24,7 +24,7 @@ namespace MoreDarts.Content.Items.Ammo {
 		}
 
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(2);
+			Recipe recipe = CreateRecipe(20);
 			recipe.AddIngredient(ItemID.SnowBlock, 1);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();

@@ -25,7 +25,7 @@ namespace MoreDarts.Content.Items.Ammo {
 		}
 
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(100);
+			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ModContent.ItemType<SteelDart>(), 50);
 			recipe.AddIngredient(ItemID.VialofVenom, 1);
 			recipe.AddTile(TileID.WorkBenches);

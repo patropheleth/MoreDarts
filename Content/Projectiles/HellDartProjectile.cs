@@ -54,21 +54,7 @@ namespace MoreDarts.Content.Projectiles {
 		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Microsoft.Xna.Framework.Vector2.Zero, 
-						ModContent.ProjectileType<Projectiles.HellDartExplosionProjectile>(), Projectile.damage/4, Projectile.knockBack, Main.myPlayer, 1f, 10f, 1f);
-			/*for (int i = 0; i < 5; i++) // Creates a splash of dust around the position the projectile dies.
-			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Silver);
-				dust.noGravity = true;
-				dust.velocity *= 1.5f;
-				dust.scale *= 0.9f;
-			} 
-			for (int j = 0; j < 20; j++) {
-				var fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
-				fireDust.noGravity = true;
-				fireDust.velocity *= 7f;
-				fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.5f);
-				fireDust.velocity *= 3f;
-			}*/
+						ModContent.ProjectileType<HellDartExplosionProjectile>(), Projectile.damage/4, Projectile.knockBack, Main.myPlayer, 1f, 10f, 1f);
 		}
 	}
 }

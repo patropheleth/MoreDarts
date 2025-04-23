@@ -50,6 +50,16 @@ Items: {
 		DisplayName: Steel Dart
 		Tooltip: I guess it deals slightly higher damage?
 	}
+
+	Blowspine: {
+		DisplayName: Blowspine
+		Tooltip: ""
+	}
+
+	BoneDart: {
+		DisplayName: Bone Dart
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -63,4 +73,6 @@ Projectiles: {
 	NanoDartProjectile.DisplayName: Nano Dart
 	EctoDartProjectile.DisplayName: Ecto Dart
 	SteelDartProjectile.DisplayName: Steel Dart
+	BoneDartProjectile.DisplayName: Bone Dart Projectile
+	BoneShardProjectile.DisplayName: Bone Shard Projectile
 }

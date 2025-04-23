@@ -23,7 +23,7 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.ammo = AmmoID.Dart; 
 		}
 
-		public override void AddRecipes()		{
+		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.LeadBar, 1);
 			recipe.AddTile(TileID.Anvils);

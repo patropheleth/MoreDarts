@@ -27,7 +27,7 @@ namespace MoreDarts.Content.Items.Ammo {
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ModContent.ItemType<SteelDart>(), 100);
-			recipe.AddIngredient(ItemID.HellstoneBar, 1);
+			recipe.AddIngredient(ItemID.Hellstone, 1);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
