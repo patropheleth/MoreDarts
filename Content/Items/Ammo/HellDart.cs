@@ -11,6 +11,7 @@ namespace MoreDarts.Content.Items.Ammo {
 		public override void SetDefaults() {
 			Item.width = 14;
 			Item.height = 36;
+			Item.rare = ItemRarityID.Green; 
 
 			Item.damage = 10; // Keep in mind that the arrow's final damage is combined with the bow weapon damage.
 			Item.DamageType = DamageClass.Ranged;

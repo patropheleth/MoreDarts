@@ -5,10 +5,12 @@ Simple mod, adding 7 new dart types, "modifying" an old one, and additionally ad
     [*]Poison dart: now slightly homes onto enemies.
     [*]Sand dart: upon hitting anything explodes in a wide area, dealing weak damage.
     [*]Snow dart: leaves up to 3 falling snowflakes in its trail.
+    [*]Bone dart: Breaks into 3 shards.
     [*]Hell dart: pierces enemies, exploding on every hit.
     [*]Nano dart: explodes into 4 nano bullets.
     [*]Venom dart: Fast triple piercing shot.
     [*]Ecto dart: pierces enemies, releasing homing wisps.
+    [*]Blowspine: shoots low range bone shards on top of your darts.
     [*]Rainbow dart gun: converts all steel darts into random ones.
     [*][spoiler]Bobo grenade: slightly homes onto you, but deals extra damage![/spoiler]
 [/list]

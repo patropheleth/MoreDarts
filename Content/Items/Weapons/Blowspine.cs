@@ -16,7 +16,7 @@ namespace MoreDarts.Content.Items.Weapons {
 			Item.width = 62; // Hitbox width of the item.
 			Item.height = 32; // Hitbox height of the item.
 			Item.scale = 0.75f;
-			Item.rare = ItemRarityID.Yellow; // The color that the item's name will be in-game.
+			Item.rare = ItemRarityID.Green;
 
 			// Use Properties
 			Item.useTime = 30; // The item's use time in ticks (60 ticks == 1 second.)
@@ -33,7 +33,7 @@ namespace MoreDarts.Content.Items.Weapons {
 
 			// Gun Properties
 			Item.shoot = ProjectileID.PurificationPowder; // For some reason, all the guns in the vanilla source have this.
-			Item.shootSpeed = 15f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
+			Item.shootSpeed = 12f; // The speed of the projectile (measured in pixels per frame.) This (10f) value equivalent to Handgun
 			Item.useAmmo = AmmoID.Dart; // The "ammo Id" of the ammo item that this weapon uses. Ammo IDs are magic numbers that usually correspond to the item id of one item that most commonly represent the ammo type.
 		}
 
@@ -56,30 +56,17 @@ namespace MoreDarts.Content.Items.Weapons {
 			return new Vector2(2f, -2f);
 		}
 
-		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
-
-            if (type == ModContent.ProjectileType<SteelDartProjectile>()){
-                //type = darts[r];
-            }
-		}
-
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            Projectile.NewProjectile(source, position, velocity.RotatedBy( System.MathF.Tau/120)*0.8f, ProjectileID.Bone, damage/2, knockback, player.whoAmI);
-        	Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/120)*0.8f, ProjectileID.Bone, damage/2, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity.RotatedBy( System.MathF.Tau/120)*0.8f, 
+				ModContent.ProjectileType<Projectiles.BoneShardProjectile>(), Item.damage, knockback, player.whoAmI);
+        	Projectile.NewProjectile(source, position, velocity.RotatedBy(-System.MathF.Tau/120)*0.8f, 
+				ModContent.ProjectileType<Projectiles.BoneShardProjectile>(), Item.damage, knockback, player.whoAmI);
 
             return true;
         }
 		/*
 		* Feel free to uncomment any of the examples below to see what they do
 		*/
-
-		// What if I wanted it to work like Uzi, replacing regular bullets with High Velocity Bullets?
-		// Uzi/Molten Fury style: Replace normal Bullets with High Velocity
-		/*public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
-			if (type == ProjectileID.Bullet) { // or ProjectileID.WoodenArrowFriendly
-				type = ProjectileID.BulletHighVelocity; // or ProjectileID.FireArrow;
-			}
-		}*/
 
 		// What if I wanted multiple projectiles in a even spread? (Vampire Knives)
 		// Even Arc style: Multiple Projectile, Even Spread

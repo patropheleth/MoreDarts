@@ -40,11 +40,11 @@ namespace MoreDarts.Content.Projectiles {
 				dust.scale *= 0.9f;
 			} 
 			if (Main.myPlayer == Projectile.owner) {
-				for (int i = 0; i < 4; i++){
+				for (int i = 0; i < 3; i++){
 					Vector2 test = Vector2.One.RotatedByRandom(MathF.Tau);
 					float ang = MathF.Atan(test.X/test.Y);
 					test.Normalize();
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X+20*MathF.Cos(ang), Projectile.position.Y+20*MathF.Sin(ang), test.X*2, test.Y*2, 
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X+20*MathF.Cos(ang), Projectile.position.Y, test.X*2, test.Y*2, 
 						ModContent.ProjectileType<BoneShardProjectile>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);
 				}
 			}

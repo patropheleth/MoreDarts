@@ -11,8 +11,9 @@ namespace MoreDarts.Content.Items.Ammo {
 		public override void SetDefaults() {
 			Item.width = 14;
 			Item.height = 36;
+			Item.rare = ItemRarityID.Blue; 
 
-			Item.damage = 60; 
+			Item.damage = 70; 
 			Item.DamageType = DamageClass.Ranged;
 
 			Item.maxStack = Item.CommonMaxStack;
@@ -21,7 +22,7 @@ namespace MoreDarts.Content.Items.Ammo {
 			Item.knockBack = 1.5f;
 			Item.useTime = 40;
 			Item.useAnimation = 40;
-			Item.value = Item.sellPrice(copper: 16);
+			Item.value = Item.sellPrice(silver: 1);
 			Item.shoot = ModContent.ProjectileType<Projectiles.BoboGrenadeProjectile>(); // The projectile that weapons fire when using this item as ammunition.
 			Item.shootSpeed = 3.5f; // The speed of the projectile.
 		}

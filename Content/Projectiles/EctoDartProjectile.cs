@@ -24,8 +24,12 @@ namespace MoreDarts.Content.Projectiles {
 		}
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			
+			if (Main.myPlayer != Projectile.owner) { return; }
+			if (target.aiStyle == NPCAIStyleID.TargetDummy) { return; }
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity.RotatedByRandom(MathF.Tau)/10, 
 				ProjectileID.SpectreWrath, Projectile.damage/2, 0, Main.myPlayer);
+
         }
 
 		public override void OnKill(int timeLeft) {
