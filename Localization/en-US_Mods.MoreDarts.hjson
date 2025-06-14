@@ -60,6 +60,16 @@ Items: {
 		DisplayName: Bone Dart
 		Tooltip: ""
 	}
+
+	NimkiPlushie: {
+		DisplayName: Nimki Plushie
+		Tooltip: ""
+	}
+
+	ChillyEgg: {
+		DisplayName: Chilly Egg
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -75,4 +85,13 @@ Projectiles: {
 	SteelDartProjectile.DisplayName: Steel Dart
 	BoneDartProjectile.DisplayName: Bone Dart Projectile
 	BoneShardProjectile.DisplayName: Bone Shard Projectile
+	NimkiProjectile.DisplayName: Nimki Projectile
+	HamisProjectile.DisplayName: Hamis Projectile
+}
+
+Buffs: {
+	HamisBuff: {
+		DisplayName: Hamis Buff
+		Description: Mods.MoreDarts.Buffs.HamisBuff.Description
+	}
 }
