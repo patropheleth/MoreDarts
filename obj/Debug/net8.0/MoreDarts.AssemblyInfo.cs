@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoreDarts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e4b33d478805081303d1e2e82ed5edfd77e4121")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+978070858c9a45478822b27af35210fc18379f3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoreDarts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoreDarts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
