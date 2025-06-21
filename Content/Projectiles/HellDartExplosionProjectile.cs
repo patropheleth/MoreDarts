@@ -19,6 +19,7 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.width = 40;
 			Projectile.height = 40;
 			Projectile.friendly = true;
+			Projectile.ArmorPenetration = 20;
 			Projectile.penetrate = -1; // Infinite penetration so that the blast can hit all enemies within its radius.
 			Projectile.DamageType = DamageClass.Ranged;
 			// usesLocalNPCImmunity and localNPCHitCooldown of -1 mean the projectile can only hit the same target once.

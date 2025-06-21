@@ -17,6 +17,7 @@ namespace MoreDarts.Content.Items.Weapons {
 			Item.height = 32; // Hitbox height of the item.
 			Item.scale = 0.75f;
 			Item.rare = ItemRarityID.Yellow; // The color that the item's name will be in-game.
+			Item.value = Item.sellPrice(gold: 5);
 
 			// Use Properties
 			Item.useTime = 22; // The item's use time in ticks (60 ticks == 1 second.)

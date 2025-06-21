@@ -53,22 +53,22 @@ Items: {
 
 	Blowspine: {
 		DisplayName: Blowspine
-		Tooltip: ""
+		Tooltip: Shoots some bone bits
 	}
 
 	BoneDart: {
 		DisplayName: Bone Dart
-		Tooltip: ""
+		Tooltip: Explodes into some bone bits
 	}
 
 	NimkiPlushie: {
-		DisplayName: Nimki Plushie
-		Tooltip: ""
+		DisplayName: Cookie Plushie
+		Tooltip: Huh? Shoutouts to Antlers and Jek
 	}
 
 	ChillyEgg: {
 		DisplayName: Chilly Egg
-		Tooltip: ""
+		Tooltip: Summons a hämis pet. Shoutouts to Noita and Crabmaster
 	}
 }
 
@@ -91,7 +91,7 @@ Projectiles: {
 
 Buffs: {
 	HamisBuff: {
-		DisplayName: Hamis Buff
-		Description: Mods.MoreDarts.Buffs.HamisBuff.Description
+		DisplayName: Hämis Buff
+		Description: Hämis is cool. Hämis our beloved.
 	}
 }

@@ -14,3 +14,5 @@ Simple mod, adding 7 new dart types, "modifying" an old one, and additionally ad
     [*]Rainbow dart gun: converts all steel darts into random ones.
     [*][spoiler]Bobo grenade: slightly homes onto you, but deals extra damage![/spoiler]
 [/list]
+
+There's also two silly items that don't really do anything; one is sold by the party girl, and the other involves eggs.

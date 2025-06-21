@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -17,20 +18,25 @@ namespace MoreDarts.Content.Projectiles {
 			ProjectileID.Sets.Explosive[Type] = true;
 		}
 		public override void SetDefaults() {
-			Projectile.width = 5;
-			Projectile.height = 5;
+			Projectile.width = 60;
+			Projectile.height = 60;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1; // Infinite penetration so that the blast can hit all enemies within its radius.
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = -1;
 
-			Projectile.timeLeft = 1800;
+			Projectile.timeLeft = 18000;
+		}
+		public override bool PreAI() {
+			DrawOriginOffsetY = 5;
+			DrawOffsetX = -3;
+			return true;
 		}
 		public override void AI() {
 			// If timeLeft is <= 3, then explode the grenade.
-			if (Projectile.owner == Main.myPlayer && Projectile.timeLeft <= 3) {
-				Projectile.PrepareBombToBlow();
+			if (Projectile.owner == Main.myPlayer && Projectile.timeLeft == 17950) {
+				Explode();
 			}
 			if (Projectile.ai[0] == 0.0f){
 				Projectile.velocity.Normalize();
@@ -50,7 +56,7 @@ namespace MoreDarts.Content.Projectiles {
 			}
 			
 			// Rotate the grenade in the direction it is moving.
-			Projectile.rotation += Projectile.velocity.X * 0.2f;
+			Projectile.rotation += MathF.Sign(Projectile.velocity.X) * MathF.Sqrt(Math.Abs(Projectile.velocity.X * 0.2f));
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -60,53 +66,20 @@ namespace MoreDarts.Content.Projectiles {
 			return false;
 		}
 
-		public override void PrepareBombToBlow() {
-			Projectile.tileCollide = false; // This is important or the explosion will be in the wrong place if the grenade explodes on slopes.
-			Projectile.alpha = 255; // Make the grenade invisible.
-
-			Projectile.Resize(128, 128);
-			Projectile.knockBack = 8f;
-		}
-
-		public override void OnKill(int timeLeft) {
-			SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
-			Projectile.Resize(22, 22);
-
-			for (int i = 0; i < 30; i++) {
-				var smoke = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
-				smoke.velocity *= 1.4f;
-			}
-
-			// Spawn a bunch of fire dusts.
-			for (int j = 0; j < 20; j++) {
-				var fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
+		public void Explode() {
+			SoundEngine.PlaySound(SoundID.LucyTheAxeTalk, Projectile.position);
+			float x = Projectile.Center.X;
+			float y = Projectile.Center.Y;
+			for (int j = 0; j < 40; j++) {
+				Vector2 pos = new(x + 20*MathF.Cos(MathF.Tau*j/40), y + 20*MathF.Sin(MathF.Tau*j/40));
+				Vector2 vel = new(15*MathF.Cos(MathF.Tau*j/40), 15*MathF.Sin(MathF.Tau*j/40));
+				Color greenb = new(0.0f, 1.0f, 0.75f);
+				var fireDust = Dust.NewDustPerfect(pos, DustID.BubbleBlock, vel.RotatedBy(MathF.Tau/80), 25, greenb, 2.0f);
+				var fireDust2 = Dust.NewDustPerfect(pos, DustID.BubbleBlock, vel, 25, new Color(0.0f, 1.0f, 1.0f), 2.0f);
 				fireDust.noGravity = true;
-				fireDust.velocity *= 7f;
-				fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.5f);
+				fireDust2.noGravity = true;
+				fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BubbleBlock, 0f, 0f, 100, greenb, 2.0f);
 				fireDust.velocity *= 3f;
-			}
-
-			// Spawn a bunch of smoke gores.
-			for (int k = 0; k < 2; k++) {
-				float speedMulti = 0.4f;
-				if (k == 1) {
-					speedMulti = 0.8f;
-				}
-
-				var smokeGore = Gore.NewGoreDirect(Projectile.GetSource_Death(), Projectile.position, default, Main.rand.Next(GoreID.Smoke1, GoreID.Smoke3 + 1));
-				smokeGore.velocity *= speedMulti;
-				smokeGore.velocity += Vector2.One;
-				smokeGore = Gore.NewGoreDirect(Projectile.GetSource_Death(), Projectile.position, default, Main.rand.Next(GoreID.Smoke1, GoreID.Smoke3 + 1));
-				smokeGore.velocity *= speedMulti;
-				smokeGore.velocity.X -= 1f;
-				smokeGore.velocity.Y += 1f;
-				smokeGore = Gore.NewGoreDirect(Projectile.GetSource_Death(), Projectile.position, default, Main.rand.Next(GoreID.Smoke1, GoreID.Smoke3 + 1));
-				smokeGore.velocity *= speedMulti;
-				smokeGore.velocity.X += 1f;
-				smokeGore.velocity.Y -= 1f;
-				smokeGore = Gore.NewGoreDirect(Projectile.GetSource_Death(), Projectile.position, default, Main.rand.Next(GoreID.Smoke1, GoreID.Smoke3 + 1));
-				smokeGore.velocity *= speedMulti;
-				smokeGore.velocity -= Vector2.One;
 			}
 		}
 	}

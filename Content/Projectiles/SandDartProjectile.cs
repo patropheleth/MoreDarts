@@ -23,6 +23,7 @@ namespace MoreDarts.Content.Projectiles {
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 120;
 			Projectile.penetrate = -1;
+			Projectile.ArmorPenetration = 20;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = -1;
 		}
